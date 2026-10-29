@@ -3,24 +3,18 @@
 <head>
     <meta charset="utf-8">
     <title>Stargazers log</title>
+    <style>
+        body {font-family: Arial; max-width: 900px; margin: 30px auto; padding: 0 20px;}
+        li {margin: 10px 0;}
+        a {color: #0969da; text-decoration: none;}
+        a:hover {text-decoration: underline;}
+    </style>
 </head>
 <body>
     <h1>Stargazers log</h1>
     <p>A log of the repositories I've starred.</p >
-    <ul id="starList"></ul>
-
-    <script>
-        const username = "cdy828";
-        fetch(`https://api.github.com/users/${username}/starred`)
-        .then(res => res.json())
-        .then(data => {
-            const ul = document.getElementById("starList");
-            data.forEach(repo => {
-                let li = document.createElement("li");
-                li.innerHTML = `<a href=" " target="_blank">${repo.full_name}</a > — ${repo.description || "无描述"}`;
-                ul.appendChild(li);
-            })
-        })
-    </script>
+    <ul id="starList">
+        <li><a href=" " target="_blank">cdy828/stargazers-log</a > — 我的收藏日志页面</li>
+    </ul>
 </body>
 </html>
