@@ -1,11 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8">
     <title>Stargazers log</title>
-  </head>
-  <body>
+</head>
+<body>
     <h1>Stargazers log</h1>
-    <p>A log of the repositories I've starred.</p>
-  </body>
+    <p>A log of the repositories I've starred.</p >
+    <ul id="starList"></ul>
+
+    <script>
+        const username = "cdy828";
+        fetch(`https://api.github.com/users/${username}/starred`)
+        .then(res => res.json())
+        .then(data => {
+            const ul = document.getElementById("starList");
+            data.forEach(repo => {
+                let li = document.createElement("li");
+                li.innerHTML = `<a href=" " target="_blank">${repo.full_name}</a > — ${repo.description || "无描述"}`;
+                ul.appendChild(li);
+            })
+        })
+    </script>
+</body>
 </html>
